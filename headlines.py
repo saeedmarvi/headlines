@@ -7,6 +7,7 @@ This is a python script file.
 import urllib2, feedparser
 from flask import Flask
 from flask import render_template
+from flask import request
 
 app = Flask(__name__)
 
@@ -21,9 +22,15 @@ PROXY = urllib2.ProxyHandler( {"http":"http://internet.proxy.fedex.com:3128", \
 @app.route("/")
 #In Flask, if we specify a part of our URL path in angle brackets < >, 
 # then it is taken as a variable and is passed to our application code. 
-@app.route("/<publication>")
+#@app.route("/<publication>")
 
-def get_news(publication="bbc"):
+def get_news():
+    # get the user input of publication query and do the check
+    query = request.args.get("publication")
+    if not query or query.lower() not in RSS_FEEDS:
+        publication = "bbc"
+    else:
+        publication = query.lower()
     # get the feed without proxy if get error, then use proxy
     feed = feedparser.parse(RSS_FEEDS[publication])
     # if find some error
