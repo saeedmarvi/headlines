@@ -1,0 +1,45 @@
+/*styles.css*/
+html {
+	font-family: Verdana,Arial,sans-serif;;
+	background: white;
+}
+
+body {
+	background: lightgrey;
+	max-width: 900px;
+	margin: 0 auto;
+	
+}
+	   
+#header {
+	background: #45117e;
+	color: white;
+	padding-top: 5;                
+}
+
+#inner-header {
+  padding-left: 10;
+}
+
+#main{
+  padding-left: 10;
+}
+
+input[type="text"], select {
+	color: grey;
+	border: 1px solid #45117e;
+	height: 30px;
+	line-height:15px;
+	margin: 2px 6px 16px 0px;
+}
+
+input[type="submit"] {
+	padding: 5px 10px 5px 10px;
+	color: white;
+	background: #45117e;
+	border: none;
+	box-shadow: 1px 1px 1px #45117e;
+}
+input[type="submit"]:hover{
+	background: #EA6214;
+}
